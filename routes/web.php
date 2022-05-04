@@ -13,9 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','PrincipalController@principal');
-Route::get('/sobre-nos', 'SobreNosController@sobreNos');
-Route::get('/contato', 'ContatoController@contato');
+Route::get('/','PrincipalController@principal')->name('site.index');
+Route::get('/sobre-nos', 'SobreNosController@sobreNos')->name('site.sobre-nos');
+Route::get('/contato', 'ContatoController@contato')->name('site.contato');
+
+Route::prefix('app')->group(function(){
+
+
+    Route::get('/login', function(){
+    })->name('app.login');
+    Route::get('/clientes', function(){
+    })->name('app.clientes');
+    Route::get('/fornecedores', function(){
+        return redirect()->route('site.index');
+    })->name('app.fornecedores');
+    Route::get('/produtos', function(){
+    })->name('app.produtos');
+
+
+});
+
+Route::fallback(function(){
+    echo "Essa rota não existe ";
+});
+
+
 
 /*
 Route::get('/contato/{nome}/{sobrenome?}', function(string $nome,string $sobrenome = "sem sobrenome"){
