@@ -14,13 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','PrincipalController@principal');
+Route::get('/sobre-nos', 'SobreNosController@sobreNos');
+Route::get('/contato', 'ContatoController@contato');
 
+/*
+Route::get('/contato/{nome}/{sobrenome?}', function(string $nome,string $sobrenome = "sem sobrenome"){
 
-Route::get('/sobre-nos', function () {
-    return '';
+    echo "Estamos aqui ".$nome."".$sobrenome;
+
 });
+*/
 
+Route::get('/contato/{nome}/{categoria_id}',function(string $nome = "Genielson",
+int $categoria_id = 1){
 
-Route::get('/contato', function () {
-    return '';
-});
+    echo "Estamos aqui ".$nome." - ".$categoria_id;
+
+})->where('categoria_id','[0-9]+')->where('nome','[A-Za-z]+');
