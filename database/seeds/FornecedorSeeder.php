@@ -13,9 +13,19 @@ class FornecedorSeeder extends Seeder
     public function run()
     {
         $fornecedor = new Fornecedor();
-        $fornecedor->nome = "";
-        $fornecedor->site = "";
-        $fornecedor->uf = "";
-        $fornecedor->email =  "";
+        $fornecedor->nome = "Genielson 100";
+        $fornecedor->site = "www.genielson.com.br";
+        $fornecedor->uf = "PI";
+        $fornecedor->email =  "genielsonl44@gmail.com";
+        $fornecedor->save();
+
+        Fornecedor::create([
+
+            'nome' => 'Genielson 200',
+            'site' => 'www.geeee.com',
+            'uf'=>'CE',
+            'email'=>'ge.nielson@hotmail.com'
+
+        ]);
     }
 }
