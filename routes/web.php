@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FornecedorController;
+use App\Http\Middleware\LogAcessoMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
