@@ -20,9 +20,6 @@ class CreateMotivoContatosTable extends Migration
             $table->timestamps();
         });
 
-        MotivoContato::create(['Dúvida']);
-        MotivoContato::create(['Elogio']);
-        MotivoContato::create(['Reclamação']);
     }
 
     /**
