@@ -19,21 +19,17 @@ Route::get('/','PrincipalController@principal')->name('site.index');
 Route::get('/sobre-nos', 'SobreNosController@sobreNos')->name('site.sobre-nos');
 Route::get('/contato', 'ContatoController@contato')->name('site.contato');
 Route::post('/contato', 'ContatoController@salvar')->name('site.contato');
-Route::get('/login', function(){})->name('site.login');
+Route::get('/login', 'LoginController@index')->name('site.login');
 
-Route::prefix('/app')->group(function(){
-    Route::get('/clientes', function(){
-    })->name('app.clientes');
+Route::middleware('log.acesso')->prefix('/app')->group(function(){
+    Route::get('/clientes', function(){})->name('app.clientes');
     /*
     Route::get('/fornecedores', function(){
         return redirect()->route('site.index');
     })->name('app.fornecedores');
     */
     Route::get('/fornecedores','FornecedorController@index')->name('app.fornecedores');
-    Route::get('/produtos', function(){
-    })->name('app.produtos');
-
-
+    Route::get('/produtos', function(){})->name('app.produtos');
 });
 
 Route::fallback(function(){
