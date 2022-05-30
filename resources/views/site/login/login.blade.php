@@ -8,10 +8,12 @@
     </div>
 
     <div class="informacao-pagina">
-        <div class="contato-principal">
-            @component('site.layouts._components.form_contato',['classe'=>'borda-preta'],'motivo_contatos'=>$motivo_contatos)
-               <p> Analisaremos sua resposta </p>
-            @endcomponent
+        <div style="width:30%;margin-left:auto;margin-right:auto;">
+            <form action={{route('site.login')}} method="post">
+                <input name="usuario" type="text" placeholder="Usuario" class="borda-preta" />
+                <input name="senha" type="password" placeholder="Senha" class="borda-preta" />
+                <button type="submit">Acessar</button>
+            </form>
         </div>
     </div>  
 </div>
