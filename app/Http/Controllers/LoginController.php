@@ -49,4 +49,8 @@ class LoginController extends Controller
         }
 
     }
+
+    public function sair(){
+        echo "saiu";
+    }
 }
